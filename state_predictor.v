@@ -44,8 +44,19 @@ module state_predictor (
 );
 
 
-wire signed [15:0] F [0:35];
-wire signed [15:0] Q [0:35];
+    wire signed [15:0] F0, F1, F2, F3, F4, F5,
+                        F6, F7, F8, F9, F10, F11,
+                        F12, F13, F14, F15, F16, F17,
+                        F18, F19, F20, F21, F22, F23,
+                        F24, F25, F26, F27, F28, F29,
+                        F30, F31, F32, F33, F34, F35;
+    
+    wire signed [15:0] Q0, Q1, Q2, Q3, Q4, Q5,
+                        Q6, Q7, Q8, Q9, Q10, Q11,
+                        Q12, Q13, Q14, Q15, Q16, Q17,
+                        Q18, Q19, Q20, Q21, Q22, Q23,
+                        Q24, Q25, Q26, Q27, Q28, Q29,
+                        Q30, Q31, Q32, Q33, Q34, Q35;
 
 
 
@@ -67,7 +78,7 @@ assign Q6 = ZERO; assign Q7 = CovV; assign Q8 = ZERO; assign Q9 = ZERO; assign Q
 assign Q12 = ZERO; assign Q13 = ZERO; assign Q14 = CovP; assign Q15 = ZERO; assign Q16 = ZERO; assign Q17 = ZERO;
 assign Q18 = ZERO; assign Q19 = ZERO; assign Q20 = ZERO; assign Q21 = CovV; assign Q22 = ZERO; assign Q23 = ZERO;
 assign Q24 = ZERO; assign Q25 = ZERO; assign Q26 = ZERO; assign Q27 = ZERO; assign Q28 = CovP; assign Q29 = ZERO;
-assign Q30 = ZERO; assign Q31 = ZERO; assign Q32 = ZERO; assign Q33 = ZERO; assign Q34 = CovP; assign Q35 = CovV;
+assign Q30 = ZERO; assign Q31 = ZERO; assign Q32 = ZERO; assign Q33 = ZERO; assign Q34 = ZERO; assign Q35 = CovV;
 
 always @(*) begin
  Xn0 = F0*X0 + F1*X1 + F2*X2 + F3*X3 + F4*X4 + F5*X5;
