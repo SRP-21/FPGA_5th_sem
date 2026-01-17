@@ -42,7 +42,7 @@ output reg signed [31:0]
         Pn30, Pn31, Pn32, Pn33, Pn34, Pn35       
     );
     
- wire signed [15:0] r1, r2, r3;
+ wire signed [15:0] R1, R2, R3;
  wire signed [15:0] y1, y2, y3;
  wire signed [15:0] k1, k2, k3;
  wire signed [15:0] d1, d2, d3;
@@ -52,9 +52,9 @@ output reg signed [31:0]
  assign y3 = z3 - X2;
  
  
- NR_div_w div1(d1, P0, k1);
- NR_div_w div2(d2, P7, k2);
- NR_div_w div3(d3, P14, k3);
+ assign k1 = P0/(P0 + R1);
+ assign k2 = P7/(P7 + R2);
+ assign k3 = P14/(P14 + R3);
  
  always @(*) 
  begin
@@ -105,4 +105,3 @@ Pn35 = P35;
 end
 
 endmodule
-
