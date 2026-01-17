@@ -9,8 +9,6 @@ module Fusion_unit (
     output signed [31:0] Pf1, Pf2, Pf3, Pf4, Pf5, Pf6
 );
 
-    
-    wire signed [15:0] t1, t2, t3, t4, t5, t6;
     wire signed [15:0] invt1, invt2, invt3, invt4, invt5, invt6;
 
     wire signed [31:0] w11, w21;
@@ -20,40 +18,23 @@ module Fusion_unit (
     wire signed [31:0] w15, w25;
     wire signed [31:0] w16, w26;
 
-    
-    assign t1 = P1_0+P2_0;
-    assign t2 = P1_6+P2_6;
-    assign t3 = P1_14+P2_14;
-    assign t4 = P1_21+P2_21;
-    assign t5 = P1_28+P2_28;
-    assign t6 = P1_36+P2_36;
+    assign w11 = P2_0/(P1_0+P2_0);
+    assign w21 = P1_0/(P1_0+P2_0);
 
-    
-    NR_div_w u_div1 (t1, invt1);
-    NR_div_w u_div2 (t2, invt2);
-    NR_div_w u_div3 (t3, invt3);
-    NR_div_w u_div4 (t4, invt4);
-    NR_div_w u_div5 (t5, invt5);
-    NR_div_w u_div6 (t6, invt6);
+    assign w12 = P2_6/(P1_6+P2_6);
+    assign w22 = P1_6/(P1_6+P2_6);
 
+    assign w13 = P2_14/(P1_14+P2_14);
+    assign w23 = P1_14/(P1_14+P2_14);
 
-    assign w11 = P2_0  * invt1;
-    assign w21 = P1_0  * invt1;
+    assign w14 = P2_21/(P1_21+P2_21);
+    assign w24 = P1_21/(P1_21+P2_21);
 
-    assign w12 = P2_6  * invt2;
-    assign w22 = P1_6  * invt2;
+    assign w15 = P2_28 /(P1_28+P2_28);
+    assign w25 = P1_28/(P1_28+P2_28);
 
-    assign w13 = P2_14 * invt3;
-    assign w23 = P1_14 * invt3;
-
-    assign w14 = P2_21 * invt4;
-    assign w24 = P1_21 * invt4;
-
-    assign w15 = P2_28 * invt5;
-    assign w25 = P1_28 * invt5;
-
-    assign w16 = P2_36 * invt6;
-    assign w26 = P1_36 * invt6;
+    assign w16 = P2_36/(P1_36+P2_36);
+    assign w26 = P1_36/(P1_36+P2_36);
 
     assign X0f = (w11*X1_0 + w21*X2_0) >>> 15;
     assign X1f = (w12*X1_1 + w22*X2_1) >>> 15;
